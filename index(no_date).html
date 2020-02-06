@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Что? Где? Когда?</title>
+    <link rel="stylesheet" type="text/css" href="src/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="src/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="src/css/datepicker.css">
+    <link rel="stylesheet" type="text/css" href="src/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="src/css/inputmask.css">
+    <link rel="stylesheet" type="text/css" href="src/fonts/icofont/icofont.css">
+    <link rel="stylesheet" type="text/css" href="src/fonts/SegoeUI/style.css">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+    <link rel="icon" type="image/png" href="src/img/static/favicon.ico">
+    <script src="src/js/jquery.min.js"></script>
+    <script src="src/js/jquery.inputmask.bundle.js"></script>
+    <script src="src/js/slick.min.js"></script>
+    <script src="src/js/jquery.countdown.js"></script>
+    <script src="src/js/datepicker.js"></script>
+    <script src="src/js/jquery.fancybox.min.js"></script>
+    <script src="src/js/isotope.pkgd.min.js"></script>
+    <script src="src/js/main.js"></script>
+  </head>
+  <body class="white-skin">
+    <header>
+      <div class="container"><a class="home" href="/"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="314" height="98" viewBox="0 0 314 98">
+  <defs><image
+    id="4gabb"
+    width="314"
+    height="98"
+    xlink:href="data:image/png;base64,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"/>
+    <clipPath id="4gaba"><path d="M0 99V0h315v99z"/></clipPath>
+  </defs>
+  <g>
+    <g>
+      <g clip-path="url(&quot;#4gaba&quot;)"><use xlink:href="#4gabb"/></g>
+    </g>
+  </g>
+</svg>
+</a>
+        <button class="hamburger icofont-navigation-menu" type="button"></button>
+        <nav class="menu">
+          <ul>
+            <li class="menu-item"><a class="menu-item__link" href="#">Список участников</a></li>
+            <li class="menu-item"><a class="slow menu-item__link" href="#news">Новости</a></li>
+            <li class="menu-item"><a class="menu-item__link" href="#">Положение</a></li>
+            <li class="menu-item"><a class="menu-item__link" href="#">Обзор</a></li>
+            <li class="menu-item"><a class="menu-item__link" href="#">Оргкомитет</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="topBanner v1">
+      <div class="container">
+        <p class="banner-title">ЧЕМПИОНАТ РОССИИ ПО&nbsp;ЧТО?&nbsp;ГДЕ?&nbsp;КОГДА?</p><a class="link v1" href="#">Регламент</a>
+      </div>
+    </section>
+    <section class="doubleDiv_block">
+      <div class="container">
+        <div class="sticky_wrapper">
+          <div class="best_results_list">
+            <h5 class="best_results_list__title">Результаты прошедшего чемпионата&nbsp;России по&nbsp;«Что?&nbsp;Где?&nbsp;Когда?»</h5>
+            <ol>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">100</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">90</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">80</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">70</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">60</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">25</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">15</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">10</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">1</h6>
+              </li>
+              <li class="best_results_list__member">
+                <div class="best_results_list__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+                <h6 class="best_results_list__name">LastName FirstName<span class="best_results_list__location">Ленинградская область</span></h6>
+                <h6 class="best_results_list__result">0</h6>
+              </li>
+            </ol><a class="link v1" href="#">ПОЛНЫЙ СПИСОК</a>
+          </div>
+        </div>
+        <div class="important_post">
+          <h3 class="important_post__title">Заголовок главной статьи Чемпионата России по «Что? Где? Когда?»</h3><img class="important_post__preview_img" src="src/img/demo/post_preview_img.jpg" alt="post_preview_img">
+          <p>В связи с этим нужно подчеркнуть, что лидерство просветляет материалистический объект. Эриксоновский гипноз, иcходя из того, что дает возрастной аутотренинг. Толпа, на первый взгляд, вероятна.</p>
+          <p>Коллективное бессознательное отражает гештальт. Бессознательное, например, отчуждает конфликтный закон, следовательно основной закон психофизики: ощущение изменяется пропорционально логарифму раздражителя . Здесь автор сталкивает два таких достаточно далёких друг от друга явления как бессознательное понимает социометрический гомеостаз. Чем больше люди узнают друг друга, тем больше сознание дает понимающий контраст. Сознание параллельно. Страх слабопроницаем.</p>
+          <p>Объект дает понимающий эгоцентризм. Аутизм, например, прекрасно притягивает инсайт, это обозначено Ли Россом как фундаментальная ошибка атрибуции, которая прослеживается во многих экспериментах. Ассоцианизм, как бы это ни казалось парадоксальным, иллюстрирует культурный архетип. Сознание, на первый взгляд, просветляет коллективный автоматизм. Но так как книга Фридмана адресована руководителям и работникам образования, то есть самонаблюдение прочно вызывает когнитивный ассоцианизм.</p>
+          <p>Объект дает понимающий эгоцентризм. Аутизм, например, прекрасно притягивает инсайт, это обозначено Ли Россом как фундаментальная ошибка атрибуции, которая прослеживается во многих экспериментах. Ассоцианизм, как бы это ни казалось парадоксальным, иллюстрирует культурный архетип. Сознание, на первый взгляд, просветляет коллективный автоматизм. Но так как книга Фридмана адресована руководителям и работникам образования, то есть самонаблюдение прочно вызывает когнитивный ассоцианизм.</p>
+        </div>
+      </div>
+    </section>
+    <section class="news v2" id="news">
+      <div class="container">
+        <h2 class="section-title">НОВОСТИ</h2>
+        <div class="wrap">
+          <ul class="nav-tabs">
+            <li><a class="active" href="#tab-pane1" onclick="return false">Официальная информация</a></li>
+            <li><a href="#tab-pane2" onclick="return false">Новости турниров</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane show" id="tab-pane1">
+              <div class="newsItem favorites">
+                <div class="newsItem__info">
+                  <h3 class="newsItem__title">Оф инфа турнира</h3><i class="newsItem__date"> 22-01-2017</i>
+                  <p class="newsItem__preview-text">Repellendus perspiciatis quas odio est hic qui at. Quo rerum corporis. Eaque aut commodi provident et. Quod alias aut aliquid. Quasi in atque dolorem. Sequi et odio blanditiis id amet occaecati maxime. Eveniet et et. Cumque dolorum quia dolorem quam ipsum debitis eum voluptas. Qui iste impedit eius nam mollitia sequi nesciunt tenetur. Assumenda deserunt consequatur vitae eos. Quas sunt non modi officia. Id molestiae officiis placeat ut sint numquam alias laborum eum. Adipisci nihil omnis culpa nam eaque deserunt soluta officiis. Dolorem qui esse et tenetur corporis laborum at vitae vero. Totam blanditiis voluptatibus laborum dignissimos inventore provident aut. Temporibus quia laboriosam impedit magnam. Animi voluptatem optio adipisci. Amet id eos autem maiores adipisci quaerat voluptatibus iure ut. Sint doloribus aspernatur. Ipsum ducimus soluta maxime eum iste illo minus. Odit ducimus voluptatibus eum repudiandae nostrum. Aliquid quia vero. Voluptatem ut sit harum temporibus. Sed pariatur fugit ratione numquam inventore consequuntur architecto nesciunt. Distinctio delectus praesentium ut consequatur sapiente facilis et laborum voluptatem. Dolor sit eligendi corrupti. Praesentium id eos voluptas et repudiandae ad porro et distinctio. Quo numquam eligendi sit. Nulla et qui ea sed quia totam illum laudantium voluptatem. Consequatur repellat totam odio. Rerum omnis beatae. Sunt voluptas necessitatibus accusamus nostrum. Ut laboriosam eum.</p><a class="tag" href="#">Тематический тег</a>
+                </div>
+                <div class="newsItem__photo"><img src="src/img/demo/Rectangle_735.png" alt="news_img"></div>
+              </div>
+              <div class="newsItem">
+                <div class="newsItem__info">
+                  <h3 class="newsItem__title">Оф инфа турнира</h3><i class="newsItem__date"> 22-01-2017</i>
+                  <p class="newsItem__preview-text">Repellendus perspiciatis quas odio est hic qui at. Quo rerum corporis. Eaque aut commodi provident et. Quod alias aut aliquid. Quasi in atque dolorem. Sequi et odio blanditiis id amet occaecati maxime. Eveniet et et. Cumque dolorum quia dolorem quam ipsum debitis eum voluptas. Qui iste impedit eius nam mollitia sequi nesciunt tenetur. Assumenda deserunt consequatur vitae eos. Quas sunt non modi officia. Id molestiae officiis placeat ut sint numquam alias laborum eum. Adipisci nihil omnis culpa nam eaque deserunt soluta officiis. Dolorem qui esse et tenetur corporis laborum at vitae vero. Totam blanditiis voluptatibus laborum dignissimos inventore provident aut. Temporibus quia laboriosam impedit magnam. Animi voluptatem optio adipisci. Amet id eos autem maiores adipisci quaerat voluptatibus iure ut. Sint doloribus aspernatur. Ipsum ducimus soluta maxime eum iste illo minus. Odit ducimus voluptatibus eum repudiandae nostrum. Aliquid quia vero. Voluptatem ut sit harum temporibus. Sed pariatur fugit ratione numquam inventore consequuntur architecto nesciunt. Distinctio delectus praesentium ut consequatur sapiente facilis et laborum voluptatem. Dolor sit eligendi corrupti. Praesentium id eos voluptas et repudiandae ad porro et distinctio. Quo numquam eligendi sit. Nulla et qui ea sed quia totam illum laudantium voluptatem. Consequatur repellat totam odio. Rerum omnis beatae. Sunt voluptas necessitatibus accusamus nostrum. Ut laboriosam eum.</p><a class="tag" href="#">Тематический тег</a>
+                </div>
+                <div class="newsItem__photo"><img src="src/img/demo/Rectangle_735.png" alt="news_img"></div>
+              </div>
+              <div class="newsItem">
+                <div class="newsItem__info">
+                  <h3 class="newsItem__title">Оф инфа турнира</h3><i class="newsItem__date"> 22-01-2017</i>
+                  <p class="newsItem__preview-text">Repellendus perspiciatis quas odio est hic qui at. Quo rerum corporis. Eaque aut commodi provident et. Quod alias aut aliquid. Quasi in atque dolorem. Sequi et odio blanditiis id amet occaecati maxime. Eveniet et et. Cumque dolorum quia dolorem quam ipsum debitis eum voluptas. Qui iste impedit eius nam mollitia sequi nesciunt tenetur. Assumenda deserunt consequatur vitae eos. Quas sunt non modi officia. Id molestiae officiis placeat ut sint numquam alias laborum eum. Adipisci nihil omnis culpa nam eaque deserunt soluta officiis. Dolorem qui esse et tenetur corporis laborum at vitae vero. Totam blanditiis voluptatibus laborum dignissimos inventore provident aut. Temporibus quia laboriosam impedit magnam. Animi voluptatem optio adipisci. Amet id eos autem maiores adipisci quaerat voluptatibus iure ut. Sint doloribus aspernatur. Ipsum ducimus soluta maxime eum iste illo minus. Odit ducimus voluptatibus eum repudiandae nostrum. Aliquid quia vero. Voluptatem ut sit harum temporibus. Sed pariatur fugit ratione numquam inventore consequuntur architecto nesciunt. Distinctio delectus praesentium ut consequatur sapiente facilis et laborum voluptatem. Dolor sit eligendi corrupti. Praesentium id eos voluptas et repudiandae ad porro et distinctio. Quo numquam eligendi sit. Nulla et qui ea sed quia totam illum laudantium voluptatem. Consequatur repellat totam odio. Rerum omnis beatae. Sunt voluptas necessitatibus accusamus nostrum. Ut laboriosam eum.</p><a class="tag" href="#">Тематический тег</a>
+                </div>
+                <div class="newsItem__photo"><img src="src/img/demo/Rectangle_735.png" alt="news_img"></div>
+              </div>
+              <div class="newsItem">
+                <div class="newsItem__info">
+                  <h3 class="newsItem__title">Оф инфа турнира</h3><i class="newsItem__date"> 22-01-2017</i>
+                  <p class="newsItem__preview-text">Repellendus perspiciatis quas odio est hic qui at. Quo rerum corporis. Eaque aut commodi provident et. Quod alias aut aliquid. Quasi in atque dolorem. Sequi et odio blanditiis id amet occaecati maxime. Eveniet et et. Cumque dolorum quia dolorem quam ipsum debitis eum voluptas. Qui iste impedit eius nam mollitia sequi nesciunt tenetur. Assumenda deserunt consequatur vitae eos. Quas sunt non modi officia. Id molestiae officiis placeat ut sint numquam alias laborum eum. Adipisci nihil omnis culpa nam eaque deserunt soluta officiis. Dolorem qui esse et tenetur corporis laborum at vitae vero. Totam blanditiis voluptatibus laborum dignissimos inventore provident aut. Temporibus quia laboriosam impedit magnam. Animi voluptatem optio adipisci. Amet id eos autem maiores adipisci quaerat voluptatibus iure ut. Sint doloribus aspernatur. Ipsum ducimus soluta maxime eum iste illo minus. Odit ducimus voluptatibus eum repudiandae nostrum. Aliquid quia vero. Voluptatem ut sit harum temporibus. Sed pariatur fugit ratione numquam inventore consequuntur architecto nesciunt. Distinctio delectus praesentium ut consequatur sapiente facilis et laborum voluptatem. Dolor sit eligendi corrupti. Praesentium id eos voluptas et repudiandae ad porro et distinctio. Quo numquam eligendi sit. Nulla et qui ea sed quia totam illum laudantium voluptatem. Consequatur repellat totam odio. Rerum omnis beatae. Sunt voluptas necessitatibus accusamus nostrum. Ut laboriosam eum.</p><a class="tag" href="#">Тематический тег</a>
+                </div>
+                <div class="newsItem__photo"><img src="src/img/demo/Rectangle_735.png" alt="news_img"></div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-pane2">
+              <div class="newsItem">
+                <div class="newsItem__info">
+                  <h3 class="newsItem__title">Новость турнира</h3><i class="newsItem__date"> 22-01-2017</i>
+                  <p class="newsItem__preview-text">Repellendus perspiciatis quas odio est hic qui at. Quo rerum corporis. Eaque aut commodi provident et. Quod alias aut aliquid. Quasi in atque dolorem. Sequi et odio blanditiis id amet occaecati maxime. Eveniet et et. Cumque dolorum quia dolorem quam ipsum debitis eum voluptas. Qui iste impedit eius nam mollitia sequi nesciunt tenetur. Assumenda deserunt consequatur vitae eos. Quas sunt non modi officia. Id molestiae officiis placeat ut sint numquam alias laborum eum. Adipisci nihil omnis culpa nam eaque deserunt soluta officiis. Dolorem qui esse et tenetur corporis laborum at vitae vero. Totam blanditiis voluptatibus laborum dignissimos inventore provident aut. Temporibus quia laboriosam impedit magnam. Animi voluptatem optio adipisci. Amet id eos autem maiores adipisci quaerat voluptatibus iure ut. Sint doloribus aspernatur. Ipsum ducimus soluta maxime eum iste illo minus. Odit ducimus voluptatibus eum repudiandae nostrum. Aliquid quia vero. Voluptatem ut sit harum temporibus. Sed pariatur fugit ratione numquam inventore consequuntur architecto nesciunt. Distinctio delectus praesentium ut consequatur sapiente facilis et laborum voluptatem. Dolor sit eligendi corrupti. Praesentium id eos voluptas et repudiandae ad porro et distinctio. Quo numquam eligendi sit. Nulla et qui ea sed quia totam illum laudantium voluptatem. Consequatur repellat totam odio. Rerum omnis beatae. Sunt voluptas necessitatibus accusamus nostrum. Ut laboriosam eum.</p><a class="tag" href="#">Тематический тег</a>
+                </div>
+                <div class="newsItem__photo"><img src="src/img/demo/Rectangle_735.png" alt="news_img"></div>
+              </div>
+              <div class="newsItem">
+                <div class="newsItem__info">
+                  <h3 class="newsItem__title">Новость турнира</h3><i class="newsItem__date"> 22-01-2017</i>
+                  <p class="newsItem__preview-text">Repellendus perspiciatis quas odio est hic qui at. Quo rerum corporis. Eaque aut commodi provident et. Quod alias aut aliquid. Quasi in atque dolorem. Sequi et odio blanditiis id amet occaecati maxime. Eveniet et et. Cumque dolorum quia dolorem quam ipsum debitis eum voluptas. Qui iste impedit eius nam mollitia sequi nesciunt tenetur. Assumenda deserunt consequatur vitae eos. Quas sunt non modi officia. Id molestiae officiis placeat ut sint numquam alias laborum eum. Adipisci nihil omnis culpa nam eaque deserunt soluta officiis. Dolorem qui esse et tenetur corporis laborum at vitae vero. Totam blanditiis voluptatibus laborum dignissimos inventore provident aut. Temporibus quia laboriosam impedit magnam. Animi voluptatem optio adipisci. Amet id eos autem maiores adipisci quaerat voluptatibus iure ut. Sint doloribus aspernatur. Ipsum ducimus soluta maxime eum iste illo minus. Odit ducimus voluptatibus eum repudiandae nostrum. Aliquid quia vero. Voluptatem ut sit harum temporibus. Sed pariatur fugit ratione numquam inventore consequuntur architecto nesciunt. Distinctio delectus praesentium ut consequatur sapiente facilis et laborum voluptatem. Dolor sit eligendi corrupti. Praesentium id eos voluptas et repudiandae ad porro et distinctio. Quo numquam eligendi sit. Nulla et qui ea sed quia totam illum laudantium voluptatem. Consequatur repellat totam odio. Rerum omnis beatae. Sunt voluptas necessitatibus accusamus nostrum. Ut laboriosam eum.</p><a class="tag" href="#">Тематический тег</a>
+                </div>
+                <div class="newsItem__photo"><img src="src/img/demo/Rectangle_735.png" alt="news_img"></div>
+              </div>
+              <div class="newsItem">
+                <div class="newsItem__info">
+                  <h3 class="newsItem__title">Новость турнира</h3><i class="newsItem__date"> 22-01-2017</i>
+                  <p class="newsItem__preview-text">Repellendus perspiciatis quas odio est hic qui at. Quo rerum corporis. Eaque aut commodi provident et. Quod alias aut aliquid. Quasi in atque dolorem. Sequi et odio blanditiis id amet occaecati maxime. Eveniet et et. Cumque dolorum quia dolorem quam ipsum debitis eum voluptas. Qui iste impedit eius nam mollitia sequi nesciunt tenetur. Assumenda deserunt consequatur vitae eos. Quas sunt non modi officia. Id molestiae officiis placeat ut sint numquam alias laborum eum. Adipisci nihil omnis culpa nam eaque deserunt soluta officiis. Dolorem qui esse et tenetur corporis laborum at vitae vero. Totam blanditiis voluptatibus laborum dignissimos inventore provident aut. Temporibus quia laboriosam impedit magnam. Animi voluptatem optio adipisci. Amet id eos autem maiores adipisci quaerat voluptatibus iure ut. Sint doloribus aspernatur. Ipsum ducimus soluta maxime eum iste illo minus. Odit ducimus voluptatibus eum repudiandae nostrum. Aliquid quia vero. Voluptatem ut sit harum temporibus. Sed pariatur fugit ratione numquam inventore consequuntur architecto nesciunt. Distinctio delectus praesentium ut consequatur sapiente facilis et laborum voluptatem. Dolor sit eligendi corrupti. Praesentium id eos voluptas et repudiandae ad porro et distinctio. Quo numquam eligendi sit. Nulla et qui ea sed quia totam illum laudantium voluptatem. Consequatur repellat totam odio. Rerum omnis beatae. Sunt voluptas necessitatibus accusamus nostrum. Ut laboriosam eum.</p><a class="tag" href="#">Тематический тег</a>
+                </div>
+                <div class="newsItem__photo"><img src="src/img/demo/Rectangle_735.png" alt="news_img"></div>
+              </div>
+              <div class="newsItem">
+                <div class="newsItem__info">
+                  <h3 class="newsItem__title">Новость турнира</h3><i class="newsItem__date"> 22-01-2017</i>
+                  <p class="newsItem__preview-text">Repellendus perspiciatis quas odio est hic qui at. Quo rerum corporis. Eaque aut commodi provident et. Quod alias aut aliquid. Quasi in atque dolorem. Sequi et odio blanditiis id amet occaecati maxime. Eveniet et et. Cumque dolorum quia dolorem quam ipsum debitis eum voluptas. Qui iste impedit eius nam mollitia sequi nesciunt tenetur. Assumenda deserunt consequatur vitae eos. Quas sunt non modi officia. Id molestiae officiis placeat ut sint numquam alias laborum eum. Adipisci nihil omnis culpa nam eaque deserunt soluta officiis. Dolorem qui esse et tenetur corporis laborum at vitae vero. Totam blanditiis voluptatibus laborum dignissimos inventore provident aut. Temporibus quia laboriosam impedit magnam. Animi voluptatem optio adipisci. Amet id eos autem maiores adipisci quaerat voluptatibus iure ut. Sint doloribus aspernatur. Ipsum ducimus soluta maxime eum iste illo minus. Odit ducimus voluptatibus eum repudiandae nostrum. Aliquid quia vero. Voluptatem ut sit harum temporibus. Sed pariatur fugit ratione numquam inventore consequuntur architecto nesciunt. Distinctio delectus praesentium ut consequatur sapiente facilis et laborum voluptatem. Dolor sit eligendi corrupti. Praesentium id eos voluptas et repudiandae ad porro et distinctio. Quo numquam eligendi sit. Nulla et qui ea sed quia totam illum laudantium voluptatem. Consequatur repellat totam odio. Rerum omnis beatae. Sunt voluptas necessitatibus accusamus nostrum. Ut laboriosam eum.</p><a class="tag" href="#">Тематический тег</a>
+                </div>
+                <div class="newsItem__photo"><img src="src/img/demo/Rectangle_735.png" alt="news_img"></div>
+              </div>
+            </div>
+          </div><a class="link v2" href="#">ВСЕ НОВОСТИ</a>
+        </div>
+      </div>
+    </section>
+    <section class="requirement">
+      <div class="container">
+        <div class="col">
+          <p class="requirement__title">Требования<br>к участникам<br>турнира</p>
+          <p class="requirement__preview-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p><i><a class="more" href="#">Подробнее...</a></i><a class="link v1" href="#" download>СКАЧАТЬ ПОЛОЖЕНИЕ В PDF</a>
+        </div>
+        <ul>
+          <li><i class="icofont-check-circled"></i>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li><i class="icofont-check-circled"></i>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li><i class="icofont-check-circled"></i>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li><i class="icofont-check-circled"></i>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li><i class="icofont-check-circled"></i>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="list_of_participants">
+      <div class="container">
+        <h2 class="section-title">Список участников</h2>
+        <div class="wrap">
+          <figure class="general_sponsor">
+            <figcaption><i>Генеральный спонсор</i></figcaption>
+            <div class="general_sponsor__photo"><img src="src/img/demo/general.jpg" alt="Генеральный спонсор"></div>
+          </figure>
+          <form class="customSearch">
+            <div class="wrapper">
+              <input class="custom-search" type="search" placeholder="Название команды">
+              <select class="custom-select sources" id="sources" name="sources" placeholder="Город">
+                <option value="profile">Москва</option>
+                <option value="word">Санкт-Петербург</option>
+                <option value="hashtag">Владивосток</option>
+              </select>
+            </div>
+            <input type="submit" value="найти">
+          </form>
+          <div class="teams_list">
+            <div class="confirmed-team">
+              <p class="teams_list_title">Команды, которые подтвердили участие</p>
+              <ul>
+                <li class="el confirmed-team_el">
+                  <div class="wrapper">
+                    <div class="team_el_photo"><img src="src/img/demo/team_demo_img.jpg" alt="team_logo"></div>
+                    <div class="team_el_info">
+                      <h4 class="team-name">Название Команды</h4><i class="team-location">Москва</i>
+                      <p class="team-description">Eos iure facilis nesciunt omnis eaque. Odio itaque id omnis exercitationem quibusdam. Consequatur est sit sunt nobis. Dolore voluptas error ducimus quibusdam quo. Perferendis totam sint rerum assumenda ipsa. Modi quos dicta eum.</p>
+                    </div>
+                    <div class="team_el_status"><i class="icofont-ui-check"></i>
+                      <div class="access"></div>
+                    </div>
+                  </div>
+                  <div class="team-line-up">
+                    <h6 class="team-line-up__title">Состав команды</h6>
+                    <ul>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                    </ul>
+                  </div><a class="show-team-line-up" href="#">Состав<i class="icofont-caret-down"></i></a>
+                </li>
+                <li class="el confirmed-team_el">
+                  <div class="wrapper">
+                    <div class="team_el_photo"><img src="src/img/demo/team_demo_img.jpg" alt="team_logo"></div>
+                    <div class="team_el_info">
+                      <h4 class="team-name">Название Команды</h4><i class="team-location">Москва</i>
+                      <p class="team-description">Eos iure facilis nesciunt omnis eaque. Odio itaque id omnis exercitationem quibusdam. Consequatur est sit sunt nobis. Dolore voluptas error ducimus quibusdam quo. Perferendis totam sint rerum assumenda ipsa. Modi quos dicta eum.</p>
+                    </div>
+                    <div class="team_el_status"><i class="icofont-ui-check"></i>
+                      <div class="access"></div>
+                    </div>
+                  </div>
+                  <div class="team-line-up">
+                    <h6 class="team-line-up__title">Состав команды</h6>
+                    <ul>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                    </ul>
+                  </div><a class="show-team-line-up" href="#">Состав<i class="icofont-caret-down"></i></a>
+                </li>
+                <li class="el confirmed-team_el">
+                  <div class="wrapper">
+                    <div class="team_el_photo"><img src="src/img/demo/team_demo_img.jpg" alt="team_logo"></div>
+                    <div class="team_el_info">
+                      <h4 class="team-name">Название Команды</h4><i class="team-location">Москва</i>
+                      <p class="team-description">Eos iure facilis nesciunt omnis eaque. Odio itaque id omnis exercitationem quibusdam. Consequatur est sit sunt nobis. Dolore voluptas error ducimus quibusdam quo. Perferendis totam sint rerum assumenda ipsa. Modi quos dicta eum.</p>
+                    </div>
+                    <div class="team_el_status"><i class="icofont-ui-check"></i>
+                      <div class="access"></div>
+                    </div>
+                  </div>
+                  <div class="team-line-up">
+                    <h6 class="team-line-up__title">Состав команды</h6>
+                    <ul>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                      <li class="people">
+                        <h6>Firstname Lastname</h6><i>Москва</i><i>
+                          <h6>1987</h6></i>
+                      </li>
+                    </ul>
+                  </div><a class="show-team-line-up" href="#">Состав<i class="icofont-caret-down"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div class="pending-team">
+              <p class="teams_list_title">Команды в ожидании</p>
+              <ul>
+                <li class="el pending-team_el">
+                  <div class="wrapper">
+                    <div class="team_el_photo"><img src="src/img/demo/team_demo_img.jpg" alt="team_logo"></div>
+                    <div class="team_el_info">
+                      <h4 class="team-name">Название Команды</h4><i class="team-location">Москва</i>
+                      <p class="team-description">Eos iure facilis nesciunt omnis eaque. Odio itaque id omnis exercitationem quibusdam. Consequatur est sit sunt nobis. Dolore voluptas error ducimus quibusdam quo. Perferendis totam sint rerum assumenda ipsa. Modi quos dicta eum.</p>
+                    </div><i class="team_el_status icofont-sand-clock"></i>
+                  </div>
+                </li>
+                <li class="el pending-team_el">
+                  <div class="wrapper">
+                    <div class="team_el_photo"><img src="src/img/demo/team_demo_img.jpg" alt="team_logo"></div>
+                    <div class="team_el_info">
+                      <h4 class="team-name">Название Команды</h4><i class="team-location">Москва</i>
+                      <p class="team-description">Eos iure facilis nesciunt omnis eaque. Odio itaque id omnis exercitationem quibusdam. Consequatur est sit sunt nobis. Dolore voluptas error ducimus quibusdam quo. Perferendis totam sint rerum assumenda ipsa. Modi quos dicta eum.</p>
+                    </div><i class="team_el_status icofont-sand-clock"></i>
+                  </div>
+                </li>
+                <li class="el pending-team_el">
+                  <div class="wrapper">
+                    <div class="team_el_photo"><img src="src/img/demo/team_demo_img.jpg" alt="team_logo"></div>
+                    <div class="team_el_info">
+                      <h4 class="team-name">Название Команды</h4><i class="team-location">Москва</i>
+                      <p class="team-description">Eos iure facilis nesciunt omnis eaque. Odio itaque id omnis exercitationem quibusdam. Consequatur est sit sunt nobis. Dolore voluptas error ducimus quibusdam quo. Perferendis totam sint rerum assumenda ipsa. Modi quos dicta eum.</p>
+                    </div><i class="team_el_status icofont-sand-clock"></i>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="pagination"><a class="prev" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><g><g><g><path fill="#3e5259" d="M14.275 28.55l2.595-2.596-9.825-9.826h21.504v-3.707H7.045l9.825-9.826L14.275 0 0 14.275z"/></g></g></g></svg></a><a href="#">1</a><b>2</b><a href="#">3</a><a href="#">4</a><a href="#">5</a><a class="next" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><g><g><g><path fill="#3e5259" d="M14.275 0l-2.596 2.595 9.825 9.826H0v3.707h21.504l-9.825 9.826 2.596 2.595 14.274-14.274z"/></g></g></g></svg></a></div>
+        </div>
+      </div><img class="owl" src="src/img/static/owl-opacity-v3.svg" alt="owl">
+    </section>
+    <section class="Upcoming-Qualifiers">
+      <div class="container">
+        <h2 class="section-title">Ближайшие отборочные турниры</h2>
+        <div class="wrap">
+          <p class="Upcoming-Qualifiers_description">Eos iure facilis nesciunt omnis eaque. Odio itaque id omnis exercitationem quibusdam. Consequatur est sit sunt nobis. Dolore voluptas error ducimus quibusdam quo. Perferendis totam sint rerum assumenda ipsa. Modi quos dicta eum.</p>
+        </div>
+      </div>
+      <div class="slider">
+        <div class="slide">
+          <div class="qualifying-round v1">
+            <div class="qualifying-round__photo"><img src="src/img/demo/qualifying-demo-img.jpg" alt="qualifying_demo_img"></div>
+            <div class="qualifying-round__information">
+              <h4 class="qualifying-round__location">Нижний Новгород</h4>
+              <p class="qualifying-round__description">Qui ut aut laboriosam commodi totam illum. Distinctio labore accusamus laboriosam distinctio voluptatum porro quia sint. Sit iusto magnam quasi esse eos eum minima minus. Debitis quia porro quo iusto quasi. Est autem impedit blanditiis.</p>
+              <p class="qualifying-round__date">12/26/2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="qualifying-round v2">
+            <div class="qualifying-round__photo"><img src="src/img/demo/qualifying-demo-img.jpg" alt="qualifying_demo_img"></div>
+            <div class="qualifying-round__information">
+              <h4 class="qualifying-round__location">Нижний Новгород</h4>
+              <p class="qualifying-round__description">Qui ut aut laboriosam commodi totam illum. Distinctio labore accusamus laboriosam distinctio voluptatum porro quia sint. Sit iusto magnam quasi esse eos eum minima minus. Debitis quia porro quo iusto quasi. Est autem impedit blanditiis.</p><a class="link v1" href="#">Подробная информация</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="qualifying-round v1">
+            <div class="qualifying-round__photo"><img src="src/img/demo/qualifying-demo-img.jpg" alt="qualifying_demo_img"></div>
+            <div class="qualifying-round__information">
+              <h4 class="qualifying-round__location">Нижний Новгород</h4>
+              <p class="qualifying-round__description">Qui ut aut laboriosam commodi totam illum. Distinctio labore accusamus laboriosam distinctio voluptatum porro quia sint. Sit iusto magnam quasi esse eos eum minima minus. Debitis quia porro quo iusto quasi. Est autem impedit blanditiis.</p>
+              <p class="qualifying-round__date">12/26/2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="qualifying-round v1">
+            <div class="qualifying-round__photo"><img src="src/img/demo/qualifying-demo-img.jpg" alt="qualifying_demo_img"></div>
+            <div class="qualifying-round__information">
+              <h4 class="qualifying-round__location">Нижний Новгород</h4>
+              <p class="qualifying-round__description">Qui ut aut laboriosam commodi totam illum. Distinctio labore accusamus laboriosam distinctio voluptatum porro quia sint. Sit iusto magnam quasi esse eos eum minima minus. Debitis quia porro quo iusto quasi. Est autem impedit blanditiis.</p>
+              <p class="qualifying-round__date">12/26/2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="qualifying-round v2">
+            <div class="qualifying-round__photo"><img src="src/img/demo/qualifying-demo-img.jpg" alt="qualifying_demo_img"></div>
+            <div class="qualifying-round__information">
+              <h4 class="qualifying-round__location">Нижний Новгород</h4>
+              <p class="qualifying-round__description">Qui ut aut laboriosam commodi totam illum. Distinctio labore accusamus laboriosam distinctio voluptatum porro quia sint. Sit iusto magnam quasi esse eos eum minima minus. Debitis quia porro quo iusto quasi. Est autem impedit blanditiis.</p><a class="link v1" href="#">Подробная информация</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="qualifying-round v2">
+            <div class="qualifying-round__photo"><img src="src/img/demo/qualifying-demo-img.jpg" alt="qualifying_demo_img"></div>
+            <div class="qualifying-round__information">
+              <h4 class="qualifying-round__location">Нижний Новгород</h4>
+              <p class="qualifying-round__description">Qui ut aut laboriosam commodi totam illum. Distinctio labore accusamus laboriosam distinctio voluptatum porro quia sint. Sit iusto magnam quasi esse eos eum minima minus. Debitis quia porro quo iusto quasi. Est autem impedit blanditiis.</p><a class="link v1" href="#">Подробная информация</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="qualifying-round v2">
+            <div class="qualifying-round__photo"><img src="src/img/demo/qualifying-demo-img.jpg" alt="qualifying_demo_img"></div>
+            <div class="qualifying-round__information">
+              <h4 class="qualifying-round__location">Нижний Новгород</h4>
+              <p class="qualifying-round__description">Qui ut aut laboriosam commodi totam illum. Distinctio labore accusamus laboriosam distinctio voluptatum porro quia sint. Sit iusto magnam quasi esse eos eum minima minus. Debitis quia porro quo iusto quasi. Est autem impedit blanditiis.</p><a class="link v1" href="#">Подробная информация</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="arrows">
+        <div class="prev"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><g><g><g><path fill="#3e5259" d="M14.275 28.55l2.595-2.596-9.825-9.826h21.504v-3.707H7.045l9.825-9.826L14.275 0 0 14.275z"/></g></g></g></svg></div>
+        <div class="next"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><g><g><g><path fill="#3e5259" d="M14.275 0l-2.596 2.595 9.825 9.826H0v3.707h21.504l-9.825 9.826 2.596 2.595 14.274-14.274z"/></g></g></g></svg></div>
+      </div>
+    </section>
+    <section class="organizing_committee">
+      <div class="container">
+        <h2 class="section-title">ОРГКомитет Чемпионата россии</h2>
+        <div class="wrap">
+          <p class="organizing_committee__description">Eos iure facilis nesciunt omnis eaque. Odio itaque id omnis exercitationem quibusdam. Consequatur est sit sunt nobis. Dolore voluptas error ducimus quibusdam quo. Perferendis totam sint rerum assumenda ipsa. Modi quos dicta eum.</p><a class="mailTo" href="mailto:info@turnir.ru"> <i class="icofont-send-mail"></i>info@turnir.ru</a>
+        </div>
+      </div>
+      <div class="members_of_the_commitiee slider">
+        <div class="slide">
+          <div class="committee_member">
+            <div class="committee_member__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+            <p class="committee_member__name">Алёна Носова</p>
+            <p class="committee_member__position">Прессцентр</p>
+            <div class="contacts"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M12.267 2.756c.533 0 .977.444.977.977a.986.986 0 0 1-.977.978.986.986 0 0 1-.978-.978c0-.533.444-.977.978-.977M8 10.666c1.511 0 2.667-1.155 2.667-2.666S9.51 5.333 8 5.333 5.333 6.49 5.333 8 6.49 10.667 8 10.667M8 3.91A4.078 4.078 0 0 1 12.089 8 4.078 4.078 0 0 1 8 12.089 4.078 4.078 0 0 1 3.911 8C3.911 5.689 5.69 3.911 8 3.911M8 0c2.133 0 2.489 0 3.289.089.889 0 1.422.178 1.955.355a3.48 3.48 0 0 1 1.423.89c.444.444.71.888.889 1.422.177.533.355 1.066.355 1.955C16 5.511 16 5.867 16 8s-.089 2.4-.089 3.289c0 .889-.178 1.422-.355 1.955a3.48 3.48 0 0 1-.89 1.423 3.48 3.48 0 0 1-1.422.889c-.533.177-1.066.355-1.955.355C10.489 16 10.133 16 8 16s-2.489 0-3.289-.089c-.889 0-1.422-.178-1.955-.355a3.48 3.48 0 0 1-1.423-.89 3.48 3.48 0 0 1-.889-1.422C.267 12.711.09 12.178.09 11.29 0 10.489 0 10.133 0 8s0-2.489.089-3.289c0-.889.089-1.422.355-1.955a3.48 3.48 0 0 1 .89-1.423A3.48 3.48 0 0 1 2.755.444C3.289.267 3.822.09 4.71.09 5.511 0 5.867 0 8 0m0 1.422c-2.133 0-2.4 0-3.2.09-.8 0-1.244.177-1.511.266-.356.089-.622.266-.889.622a3.193 3.193 0 0 0-.622.889C1.688 3.556 1.51 4 1.51 4.8c-.089.8-.089 1.067-.089 3.2s.09 2.4.09 3.2c0 .8.177 1.244.266 1.511.178.356.355.622.622.889s.533.444.889.622c.267.09.711.267 1.511.267.8.089 1.067.089 3.2.089s2.4-.09 3.2-.09c.8 0 1.244-.177 1.511-.266.356-.178.622-.355.889-.622s.444-.533.622-.889c.09-.267.267-.711.267-1.511.089-.8.089-1.067.089-3.2s-.09-2.4-.09-3.2c0-.8-.177-1.244-.266-1.511A3.192 3.192 0 0 0 13.6 2.4a3.193 3.193 0 0 0-.889-.622c-.267-.09-.711-.267-1.511-.267-.8-.089-1.067-.089-3.2-.089"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13"><g><g><path fill="#c69ccc" d="M5.067 12.978C11.11 12.978 14.4 8 14.4 3.644V3.2c.622-.444 1.156-1.067 1.6-1.689a7.379 7.379 0 0 1-1.867.533C14.844 1.6 15.29.978 15.556.267a8.153 8.153 0 0 1-2.045.8A3.175 3.175 0 0 0 11.111 0C9.333 0 7.822 1.511 7.822 3.289c0 .267 0 .533.09.711C5.155 3.822 2.755 2.578 1.155.533.889.978.71 1.6.71 2.223c0 1.155.622 2.133 1.422 2.755-.533 0-1.066-.178-1.51-.445 0 1.6 1.155 2.934 2.666 3.2-.267.09-.533.09-.889.09-.178 0-.444 0-.622-.09.444 1.334 1.6 2.223 3.11 2.311-1.155.89-2.577 1.423-4.088 1.423-.267 0-.533 0-.8-.09 1.422 1.067 3.2 1.6 5.067 1.6"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M9.067 14.4c-.134 0-.134 0-.267-.133-.133-.134-.133-.134-.133-.267v-2.4c-.534-.133-.934-.4-1.2-.8-.4-.4-.534-.8-.534-1.333v-.534c-.933 0-1.866-.4-2.533-1.066C3.733 7.2 3.333 6.4 3.333 5.333c0-1.066.4-2 1.2-2.666C5.467 2 6.533 1.733 8 1.6c.267 0 .667.133 1.067.267.133 0 .266.133.266.266 0 .934-.266 1.734-.666 2.534.4.4.666.933.666 1.333 0 .133 0 .4-.133.533-.133.134-.4.134-.533.134-.134 0-.267-.134-.534-.267C8 6.133 7.6 6 7.467 6c-.134 0-.4.133-.534.267-.133.133-.266.266-.266.533 0 .4.133.667.4.933.4.134.8.267 1.2.267H9.6c.667 0 1.2.267 1.733.8.4.4.667.933.667 1.6 0 .933-.4 1.867-.933 2.8-.8.8-1.467 1.2-2 1.2zM0 8c0 2.267.933 4 2.4 5.6C3.867 15.2 5.733 16 8 16c2.267 0 4.133-.8 5.6-2.4C15.2 12.133 16 10.267 16 8c0-2.267-.8-4.133-2.4-5.6C12.133.8 10.267 0 8 0 5.733 0 3.867.8 2.4 2.4.8 3.867 0 5.733 0 8z"/></g></g></svg></a></div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="committee_member">
+            <div class="committee_member__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+            <p class="committee_member__name">Алёна Носова</p>
+            <p class="committee_member__position">Прессцентр</p>
+            <div class="contacts"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M12.267 2.756c.533 0 .977.444.977.977a.986.986 0 0 1-.977.978.986.986 0 0 1-.978-.978c0-.533.444-.977.978-.977M8 10.666c1.511 0 2.667-1.155 2.667-2.666S9.51 5.333 8 5.333 5.333 6.49 5.333 8 6.49 10.667 8 10.667M8 3.91A4.078 4.078 0 0 1 12.089 8 4.078 4.078 0 0 1 8 12.089 4.078 4.078 0 0 1 3.911 8C3.911 5.689 5.69 3.911 8 3.911M8 0c2.133 0 2.489 0 3.289.089.889 0 1.422.178 1.955.355a3.48 3.48 0 0 1 1.423.89c.444.444.71.888.889 1.422.177.533.355 1.066.355 1.955C16 5.511 16 5.867 16 8s-.089 2.4-.089 3.289c0 .889-.178 1.422-.355 1.955a3.48 3.48 0 0 1-.89 1.423 3.48 3.48 0 0 1-1.422.889c-.533.177-1.066.355-1.955.355C10.489 16 10.133 16 8 16s-2.489 0-3.289-.089c-.889 0-1.422-.178-1.955-.355a3.48 3.48 0 0 1-1.423-.89 3.48 3.48 0 0 1-.889-1.422C.267 12.711.09 12.178.09 11.29 0 10.489 0 10.133 0 8s0-2.489.089-3.289c0-.889.089-1.422.355-1.955a3.48 3.48 0 0 1 .89-1.423A3.48 3.48 0 0 1 2.755.444C3.289.267 3.822.09 4.71.09 5.511 0 5.867 0 8 0m0 1.422c-2.133 0-2.4 0-3.2.09-.8 0-1.244.177-1.511.266-.356.089-.622.266-.889.622a3.193 3.193 0 0 0-.622.889C1.688 3.556 1.51 4 1.51 4.8c-.089.8-.089 1.067-.089 3.2s.09 2.4.09 3.2c0 .8.177 1.244.266 1.511.178.356.355.622.622.889s.533.444.889.622c.267.09.711.267 1.511.267.8.089 1.067.089 3.2.089s2.4-.09 3.2-.09c.8 0 1.244-.177 1.511-.266.356-.178.622-.355.889-.622s.444-.533.622-.889c.09-.267.267-.711.267-1.511.089-.8.089-1.067.089-3.2s-.09-2.4-.09-3.2c0-.8-.177-1.244-.266-1.511A3.192 3.192 0 0 0 13.6 2.4a3.193 3.193 0 0 0-.889-.622c-.267-.09-.711-.267-1.511-.267-.8-.089-1.067-.089-3.2-.089"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13"><g><g><path fill="#c69ccc" d="M5.067 12.978C11.11 12.978 14.4 8 14.4 3.644V3.2c.622-.444 1.156-1.067 1.6-1.689a7.379 7.379 0 0 1-1.867.533C14.844 1.6 15.29.978 15.556.267a8.153 8.153 0 0 1-2.045.8A3.175 3.175 0 0 0 11.111 0C9.333 0 7.822 1.511 7.822 3.289c0 .267 0 .533.09.711C5.155 3.822 2.755 2.578 1.155.533.889.978.71 1.6.71 2.223c0 1.155.622 2.133 1.422 2.755-.533 0-1.066-.178-1.51-.445 0 1.6 1.155 2.934 2.666 3.2-.267.09-.533.09-.889.09-.178 0-.444 0-.622-.09.444 1.334 1.6 2.223 3.11 2.311-1.155.89-2.577 1.423-4.088 1.423-.267 0-.533 0-.8-.09 1.422 1.067 3.2 1.6 5.067 1.6"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M9.067 14.4c-.134 0-.134 0-.267-.133-.133-.134-.133-.134-.133-.267v-2.4c-.534-.133-.934-.4-1.2-.8-.4-.4-.534-.8-.534-1.333v-.534c-.933 0-1.866-.4-2.533-1.066C3.733 7.2 3.333 6.4 3.333 5.333c0-1.066.4-2 1.2-2.666C5.467 2 6.533 1.733 8 1.6c.267 0 .667.133 1.067.267.133 0 .266.133.266.266 0 .934-.266 1.734-.666 2.534.4.4.666.933.666 1.333 0 .133 0 .4-.133.533-.133.134-.4.134-.533.134-.134 0-.267-.134-.534-.267C8 6.133 7.6 6 7.467 6c-.134 0-.4.133-.534.267-.133.133-.266.266-.266.533 0 .4.133.667.4.933.4.134.8.267 1.2.267H9.6c.667 0 1.2.267 1.733.8.4.4.667.933.667 1.6 0 .933-.4 1.867-.933 2.8-.8.8-1.467 1.2-2 1.2zM0 8c0 2.267.933 4 2.4 5.6C3.867 15.2 5.733 16 8 16c2.267 0 4.133-.8 5.6-2.4C15.2 12.133 16 10.267 16 8c0-2.267-.8-4.133-2.4-5.6C12.133.8 10.267 0 8 0 5.733 0 3.867.8 2.4 2.4.8 3.867 0 5.733 0 8z"/></g></g></svg></a></div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="committee_member">
+            <div class="committee_member__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+            <p class="committee_member__name">Алёна Носова</p>
+            <p class="committee_member__position">Прессцентр</p>
+            <div class="contacts"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M12.267 2.756c.533 0 .977.444.977.977a.986.986 0 0 1-.977.978.986.986 0 0 1-.978-.978c0-.533.444-.977.978-.977M8 10.666c1.511 0 2.667-1.155 2.667-2.666S9.51 5.333 8 5.333 5.333 6.49 5.333 8 6.49 10.667 8 10.667M8 3.91A4.078 4.078 0 0 1 12.089 8 4.078 4.078 0 0 1 8 12.089 4.078 4.078 0 0 1 3.911 8C3.911 5.689 5.69 3.911 8 3.911M8 0c2.133 0 2.489 0 3.289.089.889 0 1.422.178 1.955.355a3.48 3.48 0 0 1 1.423.89c.444.444.71.888.889 1.422.177.533.355 1.066.355 1.955C16 5.511 16 5.867 16 8s-.089 2.4-.089 3.289c0 .889-.178 1.422-.355 1.955a3.48 3.48 0 0 1-.89 1.423 3.48 3.48 0 0 1-1.422.889c-.533.177-1.066.355-1.955.355C10.489 16 10.133 16 8 16s-2.489 0-3.289-.089c-.889 0-1.422-.178-1.955-.355a3.48 3.48 0 0 1-1.423-.89 3.48 3.48 0 0 1-.889-1.422C.267 12.711.09 12.178.09 11.29 0 10.489 0 10.133 0 8s0-2.489.089-3.289c0-.889.089-1.422.355-1.955a3.48 3.48 0 0 1 .89-1.423A3.48 3.48 0 0 1 2.755.444C3.289.267 3.822.09 4.71.09 5.511 0 5.867 0 8 0m0 1.422c-2.133 0-2.4 0-3.2.09-.8 0-1.244.177-1.511.266-.356.089-.622.266-.889.622a3.193 3.193 0 0 0-.622.889C1.688 3.556 1.51 4 1.51 4.8c-.089.8-.089 1.067-.089 3.2s.09 2.4.09 3.2c0 .8.177 1.244.266 1.511.178.356.355.622.622.889s.533.444.889.622c.267.09.711.267 1.511.267.8.089 1.067.089 3.2.089s2.4-.09 3.2-.09c.8 0 1.244-.177 1.511-.266.356-.178.622-.355.889-.622s.444-.533.622-.889c.09-.267.267-.711.267-1.511.089-.8.089-1.067.089-3.2s-.09-2.4-.09-3.2c0-.8-.177-1.244-.266-1.511A3.192 3.192 0 0 0 13.6 2.4a3.193 3.193 0 0 0-.889-.622c-.267-.09-.711-.267-1.511-.267-.8-.089-1.067-.089-3.2-.089"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13"><g><g><path fill="#c69ccc" d="M5.067 12.978C11.11 12.978 14.4 8 14.4 3.644V3.2c.622-.444 1.156-1.067 1.6-1.689a7.379 7.379 0 0 1-1.867.533C14.844 1.6 15.29.978 15.556.267a8.153 8.153 0 0 1-2.045.8A3.175 3.175 0 0 0 11.111 0C9.333 0 7.822 1.511 7.822 3.289c0 .267 0 .533.09.711C5.155 3.822 2.755 2.578 1.155.533.889.978.71 1.6.71 2.223c0 1.155.622 2.133 1.422 2.755-.533 0-1.066-.178-1.51-.445 0 1.6 1.155 2.934 2.666 3.2-.267.09-.533.09-.889.09-.178 0-.444 0-.622-.09.444 1.334 1.6 2.223 3.11 2.311-1.155.89-2.577 1.423-4.088 1.423-.267 0-.533 0-.8-.09 1.422 1.067 3.2 1.6 5.067 1.6"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M9.067 14.4c-.134 0-.134 0-.267-.133-.133-.134-.133-.134-.133-.267v-2.4c-.534-.133-.934-.4-1.2-.8-.4-.4-.534-.8-.534-1.333v-.534c-.933 0-1.866-.4-2.533-1.066C3.733 7.2 3.333 6.4 3.333 5.333c0-1.066.4-2 1.2-2.666C5.467 2 6.533 1.733 8 1.6c.267 0 .667.133 1.067.267.133 0 .266.133.266.266 0 .934-.266 1.734-.666 2.534.4.4.666.933.666 1.333 0 .133 0 .4-.133.533-.133.134-.4.134-.533.134-.134 0-.267-.134-.534-.267C8 6.133 7.6 6 7.467 6c-.134 0-.4.133-.534.267-.133.133-.266.266-.266.533 0 .4.133.667.4.933.4.134.8.267 1.2.267H9.6c.667 0 1.2.267 1.733.8.4.4.667.933.667 1.6 0 .933-.4 1.867-.933 2.8-.8.8-1.467 1.2-2 1.2zM0 8c0 2.267.933 4 2.4 5.6C3.867 15.2 5.733 16 8 16c2.267 0 4.133-.8 5.6-2.4C15.2 12.133 16 10.267 16 8c0-2.267-.8-4.133-2.4-5.6C12.133.8 10.267 0 8 0 5.733 0 3.867.8 2.4 2.4.8 3.867 0 5.733 0 8z"/></g></g></svg></a></div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="committee_member">
+            <div class="committee_member__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+            <p class="committee_member__name">Алёна Носова</p>
+            <p class="committee_member__position">Прессцентр</p>
+            <div class="contacts"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M12.267 2.756c.533 0 .977.444.977.977a.986.986 0 0 1-.977.978.986.986 0 0 1-.978-.978c0-.533.444-.977.978-.977M8 10.666c1.511 0 2.667-1.155 2.667-2.666S9.51 5.333 8 5.333 5.333 6.49 5.333 8 6.49 10.667 8 10.667M8 3.91A4.078 4.078 0 0 1 12.089 8 4.078 4.078 0 0 1 8 12.089 4.078 4.078 0 0 1 3.911 8C3.911 5.689 5.69 3.911 8 3.911M8 0c2.133 0 2.489 0 3.289.089.889 0 1.422.178 1.955.355a3.48 3.48 0 0 1 1.423.89c.444.444.71.888.889 1.422.177.533.355 1.066.355 1.955C16 5.511 16 5.867 16 8s-.089 2.4-.089 3.289c0 .889-.178 1.422-.355 1.955a3.48 3.48 0 0 1-.89 1.423 3.48 3.48 0 0 1-1.422.889c-.533.177-1.066.355-1.955.355C10.489 16 10.133 16 8 16s-2.489 0-3.289-.089c-.889 0-1.422-.178-1.955-.355a3.48 3.48 0 0 1-1.423-.89 3.48 3.48 0 0 1-.889-1.422C.267 12.711.09 12.178.09 11.29 0 10.489 0 10.133 0 8s0-2.489.089-3.289c0-.889.089-1.422.355-1.955a3.48 3.48 0 0 1 .89-1.423A3.48 3.48 0 0 1 2.755.444C3.289.267 3.822.09 4.71.09 5.511 0 5.867 0 8 0m0 1.422c-2.133 0-2.4 0-3.2.09-.8 0-1.244.177-1.511.266-.356.089-.622.266-.889.622a3.193 3.193 0 0 0-.622.889C1.688 3.556 1.51 4 1.51 4.8c-.089.8-.089 1.067-.089 3.2s.09 2.4.09 3.2c0 .8.177 1.244.266 1.511.178.356.355.622.622.889s.533.444.889.622c.267.09.711.267 1.511.267.8.089 1.067.089 3.2.089s2.4-.09 3.2-.09c.8 0 1.244-.177 1.511-.266.356-.178.622-.355.889-.622s.444-.533.622-.889c.09-.267.267-.711.267-1.511.089-.8.089-1.067.089-3.2s-.09-2.4-.09-3.2c0-.8-.177-1.244-.266-1.511A3.192 3.192 0 0 0 13.6 2.4a3.193 3.193 0 0 0-.889-.622c-.267-.09-.711-.267-1.511-.267-.8-.089-1.067-.089-3.2-.089"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13"><g><g><path fill="#c69ccc" d="M5.067 12.978C11.11 12.978 14.4 8 14.4 3.644V3.2c.622-.444 1.156-1.067 1.6-1.689a7.379 7.379 0 0 1-1.867.533C14.844 1.6 15.29.978 15.556.267a8.153 8.153 0 0 1-2.045.8A3.175 3.175 0 0 0 11.111 0C9.333 0 7.822 1.511 7.822 3.289c0 .267 0 .533.09.711C5.155 3.822 2.755 2.578 1.155.533.889.978.71 1.6.71 2.223c0 1.155.622 2.133 1.422 2.755-.533 0-1.066-.178-1.51-.445 0 1.6 1.155 2.934 2.666 3.2-.267.09-.533.09-.889.09-.178 0-.444 0-.622-.09.444 1.334 1.6 2.223 3.11 2.311-1.155.89-2.577 1.423-4.088 1.423-.267 0-.533 0-.8-.09 1.422 1.067 3.2 1.6 5.067 1.6"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M9.067 14.4c-.134 0-.134 0-.267-.133-.133-.134-.133-.134-.133-.267v-2.4c-.534-.133-.934-.4-1.2-.8-.4-.4-.534-.8-.534-1.333v-.534c-.933 0-1.866-.4-2.533-1.066C3.733 7.2 3.333 6.4 3.333 5.333c0-1.066.4-2 1.2-2.666C5.467 2 6.533 1.733 8 1.6c.267 0 .667.133 1.067.267.133 0 .266.133.266.266 0 .934-.266 1.734-.666 2.534.4.4.666.933.666 1.333 0 .133 0 .4-.133.533-.133.134-.4.134-.533.134-.134 0-.267-.134-.534-.267C8 6.133 7.6 6 7.467 6c-.134 0-.4.133-.534.267-.133.133-.266.266-.266.533 0 .4.133.667.4.933.4.134.8.267 1.2.267H9.6c.667 0 1.2.267 1.733.8.4.4.667.933.667 1.6 0 .933-.4 1.867-.933 2.8-.8.8-1.467 1.2-2 1.2zM0 8c0 2.267.933 4 2.4 5.6C3.867 15.2 5.733 16 8 16c2.267 0 4.133-.8 5.6-2.4C15.2 12.133 16 10.267 16 8c0-2.267-.8-4.133-2.4-5.6C12.133.8 10.267 0 8 0 5.733 0 3.867.8 2.4 2.4.8 3.867 0 5.733 0 8z"/></g></g></svg></a></div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="committee_member">
+            <div class="committee_member__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+            <p class="committee_member__name">Алёна Носова</p>
+            <p class="committee_member__position">Прессцентр</p>
+            <div class="contacts"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M12.267 2.756c.533 0 .977.444.977.977a.986.986 0 0 1-.977.978.986.986 0 0 1-.978-.978c0-.533.444-.977.978-.977M8 10.666c1.511 0 2.667-1.155 2.667-2.666S9.51 5.333 8 5.333 5.333 6.49 5.333 8 6.49 10.667 8 10.667M8 3.91A4.078 4.078 0 0 1 12.089 8 4.078 4.078 0 0 1 8 12.089 4.078 4.078 0 0 1 3.911 8C3.911 5.689 5.69 3.911 8 3.911M8 0c2.133 0 2.489 0 3.289.089.889 0 1.422.178 1.955.355a3.48 3.48 0 0 1 1.423.89c.444.444.71.888.889 1.422.177.533.355 1.066.355 1.955C16 5.511 16 5.867 16 8s-.089 2.4-.089 3.289c0 .889-.178 1.422-.355 1.955a3.48 3.48 0 0 1-.89 1.423 3.48 3.48 0 0 1-1.422.889c-.533.177-1.066.355-1.955.355C10.489 16 10.133 16 8 16s-2.489 0-3.289-.089c-.889 0-1.422-.178-1.955-.355a3.48 3.48 0 0 1-1.423-.89 3.48 3.48 0 0 1-.889-1.422C.267 12.711.09 12.178.09 11.29 0 10.489 0 10.133 0 8s0-2.489.089-3.289c0-.889.089-1.422.355-1.955a3.48 3.48 0 0 1 .89-1.423A3.48 3.48 0 0 1 2.755.444C3.289.267 3.822.09 4.71.09 5.511 0 5.867 0 8 0m0 1.422c-2.133 0-2.4 0-3.2.09-.8 0-1.244.177-1.511.266-.356.089-.622.266-.889.622a3.193 3.193 0 0 0-.622.889C1.688 3.556 1.51 4 1.51 4.8c-.089.8-.089 1.067-.089 3.2s.09 2.4.09 3.2c0 .8.177 1.244.266 1.511.178.356.355.622.622.889s.533.444.889.622c.267.09.711.267 1.511.267.8.089 1.067.089 3.2.089s2.4-.09 3.2-.09c.8 0 1.244-.177 1.511-.266.356-.178.622-.355.889-.622s.444-.533.622-.889c.09-.267.267-.711.267-1.511.089-.8.089-1.067.089-3.2s-.09-2.4-.09-3.2c0-.8-.177-1.244-.266-1.511A3.192 3.192 0 0 0 13.6 2.4a3.193 3.193 0 0 0-.889-.622c-.267-.09-.711-.267-1.511-.267-.8-.089-1.067-.089-3.2-.089"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13"><g><g><path fill="#c69ccc" d="M5.067 12.978C11.11 12.978 14.4 8 14.4 3.644V3.2c.622-.444 1.156-1.067 1.6-1.689a7.379 7.379 0 0 1-1.867.533C14.844 1.6 15.29.978 15.556.267a8.153 8.153 0 0 1-2.045.8A3.175 3.175 0 0 0 11.111 0C9.333 0 7.822 1.511 7.822 3.289c0 .267 0 .533.09.711C5.155 3.822 2.755 2.578 1.155.533.889.978.71 1.6.71 2.223c0 1.155.622 2.133 1.422 2.755-.533 0-1.066-.178-1.51-.445 0 1.6 1.155 2.934 2.666 3.2-.267.09-.533.09-.889.09-.178 0-.444 0-.622-.09.444 1.334 1.6 2.223 3.11 2.311-1.155.89-2.577 1.423-4.088 1.423-.267 0-.533 0-.8-.09 1.422 1.067 3.2 1.6 5.067 1.6"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M9.067 14.4c-.134 0-.134 0-.267-.133-.133-.134-.133-.134-.133-.267v-2.4c-.534-.133-.934-.4-1.2-.8-.4-.4-.534-.8-.534-1.333v-.534c-.933 0-1.866-.4-2.533-1.066C3.733 7.2 3.333 6.4 3.333 5.333c0-1.066.4-2 1.2-2.666C5.467 2 6.533 1.733 8 1.6c.267 0 .667.133 1.067.267.133 0 .266.133.266.266 0 .934-.266 1.734-.666 2.534.4.4.666.933.666 1.333 0 .133 0 .4-.133.533-.133.134-.4.134-.533.134-.134 0-.267-.134-.534-.267C8 6.133 7.6 6 7.467 6c-.134 0-.4.133-.534.267-.133.133-.266.266-.266.533 0 .4.133.667.4.933.4.134.8.267 1.2.267H9.6c.667 0 1.2.267 1.733.8.4.4.667.933.667 1.6 0 .933-.4 1.867-.933 2.8-.8.8-1.467 1.2-2 1.2zM0 8c0 2.267.933 4 2.4 5.6C3.867 15.2 5.733 16 8 16c2.267 0 4.133-.8 5.6-2.4C15.2 12.133 16 10.267 16 8c0-2.267-.8-4.133-2.4-5.6C12.133.8 10.267 0 8 0 5.733 0 3.867.8 2.4 2.4.8 3.867 0 5.733 0 8z"/></g></g></svg></a></div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="committee_member">
+            <div class="committee_member__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+            <p class="committee_member__name">Алёна Носова</p>
+            <p class="committee_member__position">Прессцентр</p>
+            <div class="contacts"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M12.267 2.756c.533 0 .977.444.977.977a.986.986 0 0 1-.977.978.986.986 0 0 1-.978-.978c0-.533.444-.977.978-.977M8 10.666c1.511 0 2.667-1.155 2.667-2.666S9.51 5.333 8 5.333 5.333 6.49 5.333 8 6.49 10.667 8 10.667M8 3.91A4.078 4.078 0 0 1 12.089 8 4.078 4.078 0 0 1 8 12.089 4.078 4.078 0 0 1 3.911 8C3.911 5.689 5.69 3.911 8 3.911M8 0c2.133 0 2.489 0 3.289.089.889 0 1.422.178 1.955.355a3.48 3.48 0 0 1 1.423.89c.444.444.71.888.889 1.422.177.533.355 1.066.355 1.955C16 5.511 16 5.867 16 8s-.089 2.4-.089 3.289c0 .889-.178 1.422-.355 1.955a3.48 3.48 0 0 1-.89 1.423 3.48 3.48 0 0 1-1.422.889c-.533.177-1.066.355-1.955.355C10.489 16 10.133 16 8 16s-2.489 0-3.289-.089c-.889 0-1.422-.178-1.955-.355a3.48 3.48 0 0 1-1.423-.89 3.48 3.48 0 0 1-.889-1.422C.267 12.711.09 12.178.09 11.29 0 10.489 0 10.133 0 8s0-2.489.089-3.289c0-.889.089-1.422.355-1.955a3.48 3.48 0 0 1 .89-1.423A3.48 3.48 0 0 1 2.755.444C3.289.267 3.822.09 4.71.09 5.511 0 5.867 0 8 0m0 1.422c-2.133 0-2.4 0-3.2.09-.8 0-1.244.177-1.511.266-.356.089-.622.266-.889.622a3.193 3.193 0 0 0-.622.889C1.688 3.556 1.51 4 1.51 4.8c-.089.8-.089 1.067-.089 3.2s.09 2.4.09 3.2c0 .8.177 1.244.266 1.511.178.356.355.622.622.889s.533.444.889.622c.267.09.711.267 1.511.267.8.089 1.067.089 3.2.089s2.4-.09 3.2-.09c.8 0 1.244-.177 1.511-.266.356-.178.622-.355.889-.622s.444-.533.622-.889c.09-.267.267-.711.267-1.511.089-.8.089-1.067.089-3.2s-.09-2.4-.09-3.2c0-.8-.177-1.244-.266-1.511A3.192 3.192 0 0 0 13.6 2.4a3.193 3.193 0 0 0-.889-.622c-.267-.09-.711-.267-1.511-.267-.8-.089-1.067-.089-3.2-.089"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13"><g><g><path fill="#c69ccc" d="M5.067 12.978C11.11 12.978 14.4 8 14.4 3.644V3.2c.622-.444 1.156-1.067 1.6-1.689a7.379 7.379 0 0 1-1.867.533C14.844 1.6 15.29.978 15.556.267a8.153 8.153 0 0 1-2.045.8A3.175 3.175 0 0 0 11.111 0C9.333 0 7.822 1.511 7.822 3.289c0 .267 0 .533.09.711C5.155 3.822 2.755 2.578 1.155.533.889.978.71 1.6.71 2.223c0 1.155.622 2.133 1.422 2.755-.533 0-1.066-.178-1.51-.445 0 1.6 1.155 2.934 2.666 3.2-.267.09-.533.09-.889.09-.178 0-.444 0-.622-.09.444 1.334 1.6 2.223 3.11 2.311-1.155.89-2.577 1.423-4.088 1.423-.267 0-.533 0-.8-.09 1.422 1.067 3.2 1.6 5.067 1.6"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M9.067 14.4c-.134 0-.134 0-.267-.133-.133-.134-.133-.134-.133-.267v-2.4c-.534-.133-.934-.4-1.2-.8-.4-.4-.534-.8-.534-1.333v-.534c-.933 0-1.866-.4-2.533-1.066C3.733 7.2 3.333 6.4 3.333 5.333c0-1.066.4-2 1.2-2.666C5.467 2 6.533 1.733 8 1.6c.267 0 .667.133 1.067.267.133 0 .266.133.266.266 0 .934-.266 1.734-.666 2.534.4.4.666.933.666 1.333 0 .133 0 .4-.133.533-.133.134-.4.134-.533.134-.134 0-.267-.134-.534-.267C8 6.133 7.6 6 7.467 6c-.134 0-.4.133-.534.267-.133.133-.266.266-.266.533 0 .4.133.667.4.933.4.134.8.267 1.2.267H9.6c.667 0 1.2.267 1.733.8.4.4.667.933.667 1.6 0 .933-.4 1.867-.933 2.8-.8.8-1.467 1.2-2 1.2zM0 8c0 2.267.933 4 2.4 5.6C3.867 15.2 5.733 16 8 16c2.267 0 4.133-.8 5.6-2.4C15.2 12.133 16 10.267 16 8c0-2.267-.8-4.133-2.4-5.6C12.133.8 10.267 0 8 0 5.733 0 3.867.8 2.4 2.4.8 3.867 0 5.733 0 8z"/></g></g></svg></a></div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="committee_member">
+            <div class="committee_member__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+            <p class="committee_member__name">Алёна Носова</p>
+            <p class="committee_member__position">Прессцентр</p>
+            <div class="contacts"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M12.267 2.756c.533 0 .977.444.977.977a.986.986 0 0 1-.977.978.986.986 0 0 1-.978-.978c0-.533.444-.977.978-.977M8 10.666c1.511 0 2.667-1.155 2.667-2.666S9.51 5.333 8 5.333 5.333 6.49 5.333 8 6.49 10.667 8 10.667M8 3.91A4.078 4.078 0 0 1 12.089 8 4.078 4.078 0 0 1 8 12.089 4.078 4.078 0 0 1 3.911 8C3.911 5.689 5.69 3.911 8 3.911M8 0c2.133 0 2.489 0 3.289.089.889 0 1.422.178 1.955.355a3.48 3.48 0 0 1 1.423.89c.444.444.71.888.889 1.422.177.533.355 1.066.355 1.955C16 5.511 16 5.867 16 8s-.089 2.4-.089 3.289c0 .889-.178 1.422-.355 1.955a3.48 3.48 0 0 1-.89 1.423 3.48 3.48 0 0 1-1.422.889c-.533.177-1.066.355-1.955.355C10.489 16 10.133 16 8 16s-2.489 0-3.289-.089c-.889 0-1.422-.178-1.955-.355a3.48 3.48 0 0 1-1.423-.89 3.48 3.48 0 0 1-.889-1.422C.267 12.711.09 12.178.09 11.29 0 10.489 0 10.133 0 8s0-2.489.089-3.289c0-.889.089-1.422.355-1.955a3.48 3.48 0 0 1 .89-1.423A3.48 3.48 0 0 1 2.755.444C3.289.267 3.822.09 4.71.09 5.511 0 5.867 0 8 0m0 1.422c-2.133 0-2.4 0-3.2.09-.8 0-1.244.177-1.511.266-.356.089-.622.266-.889.622a3.193 3.193 0 0 0-.622.889C1.688 3.556 1.51 4 1.51 4.8c-.089.8-.089 1.067-.089 3.2s.09 2.4.09 3.2c0 .8.177 1.244.266 1.511.178.356.355.622.622.889s.533.444.889.622c.267.09.711.267 1.511.267.8.089 1.067.089 3.2.089s2.4-.09 3.2-.09c.8 0 1.244-.177 1.511-.266.356-.178.622-.355.889-.622s.444-.533.622-.889c.09-.267.267-.711.267-1.511.089-.8.089-1.067.089-3.2s-.09-2.4-.09-3.2c0-.8-.177-1.244-.266-1.511A3.192 3.192 0 0 0 13.6 2.4a3.193 3.193 0 0 0-.889-.622c-.267-.09-.711-.267-1.511-.267-.8-.089-1.067-.089-3.2-.089"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13"><g><g><path fill="#c69ccc" d="M5.067 12.978C11.11 12.978 14.4 8 14.4 3.644V3.2c.622-.444 1.156-1.067 1.6-1.689a7.379 7.379 0 0 1-1.867.533C14.844 1.6 15.29.978 15.556.267a8.153 8.153 0 0 1-2.045.8A3.175 3.175 0 0 0 11.111 0C9.333 0 7.822 1.511 7.822 3.289c0 .267 0 .533.09.711C5.155 3.822 2.755 2.578 1.155.533.889.978.71 1.6.71 2.223c0 1.155.622 2.133 1.422 2.755-.533 0-1.066-.178-1.51-.445 0 1.6 1.155 2.934 2.666 3.2-.267.09-.533.09-.889.09-.178 0-.444 0-.622-.09.444 1.334 1.6 2.223 3.11 2.311-1.155.89-2.577 1.423-4.088 1.423-.267 0-.533 0-.8-.09 1.422 1.067 3.2 1.6 5.067 1.6"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M9.067 14.4c-.134 0-.134 0-.267-.133-.133-.134-.133-.134-.133-.267v-2.4c-.534-.133-.934-.4-1.2-.8-.4-.4-.534-.8-.534-1.333v-.534c-.933 0-1.866-.4-2.533-1.066C3.733 7.2 3.333 6.4 3.333 5.333c0-1.066.4-2 1.2-2.666C5.467 2 6.533 1.733 8 1.6c.267 0 .667.133 1.067.267.133 0 .266.133.266.266 0 .934-.266 1.734-.666 2.534.4.4.666.933.666 1.333 0 .133 0 .4-.133.533-.133.134-.4.134-.533.134-.134 0-.267-.134-.534-.267C8 6.133 7.6 6 7.467 6c-.134 0-.4.133-.534.267-.133.133-.266.266-.266.533 0 .4.133.667.4.933.4.134.8.267 1.2.267H9.6c.667 0 1.2.267 1.733.8.4.4.667.933.667 1.6 0 .933-.4 1.867-.933 2.8-.8.8-1.467 1.2-2 1.2zM0 8c0 2.267.933 4 2.4 5.6C3.867 15.2 5.733 16 8 16c2.267 0 4.133-.8 5.6-2.4C15.2 12.133 16 10.267 16 8c0-2.267-.8-4.133-2.4-5.6C12.133.8 10.267 0 8 0 5.733 0 3.867.8 2.4 2.4.8 3.867 0 5.733 0 8z"/></g></g></svg></a></div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="committee_member">
+            <div class="committee_member__photo"><img src="src/img/demo/memberPhoto.jpg" alt="memberPhoto"></div>
+            <p class="committee_member__name">Алёна Носова</p>
+            <p class="committee_member__position">Прессцентр</p>
+            <div class="contacts"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M12.267 2.756c.533 0 .977.444.977.977a.986.986 0 0 1-.977.978.986.986 0 0 1-.978-.978c0-.533.444-.977.978-.977M8 10.666c1.511 0 2.667-1.155 2.667-2.666S9.51 5.333 8 5.333 5.333 6.49 5.333 8 6.49 10.667 8 10.667M8 3.91A4.078 4.078 0 0 1 12.089 8 4.078 4.078 0 0 1 8 12.089 4.078 4.078 0 0 1 3.911 8C3.911 5.689 5.69 3.911 8 3.911M8 0c2.133 0 2.489 0 3.289.089.889 0 1.422.178 1.955.355a3.48 3.48 0 0 1 1.423.89c.444.444.71.888.889 1.422.177.533.355 1.066.355 1.955C16 5.511 16 5.867 16 8s-.089 2.4-.089 3.289c0 .889-.178 1.422-.355 1.955a3.48 3.48 0 0 1-.89 1.423 3.48 3.48 0 0 1-1.422.889c-.533.177-1.066.355-1.955.355C10.489 16 10.133 16 8 16s-2.489 0-3.289-.089c-.889 0-1.422-.178-1.955-.355a3.48 3.48 0 0 1-1.423-.89 3.48 3.48 0 0 1-.889-1.422C.267 12.711.09 12.178.09 11.29 0 10.489 0 10.133 0 8s0-2.489.089-3.289c0-.889.089-1.422.355-1.955a3.48 3.48 0 0 1 .89-1.423A3.48 3.48 0 0 1 2.755.444C3.289.267 3.822.09 4.71.09 5.511 0 5.867 0 8 0m0 1.422c-2.133 0-2.4 0-3.2.09-.8 0-1.244.177-1.511.266-.356.089-.622.266-.889.622a3.193 3.193 0 0 0-.622.889C1.688 3.556 1.51 4 1.51 4.8c-.089.8-.089 1.067-.089 3.2s.09 2.4.09 3.2c0 .8.177 1.244.266 1.511.178.356.355.622.622.889s.533.444.889.622c.267.09.711.267 1.511.267.8.089 1.067.089 3.2.089s2.4-.09 3.2-.09c.8 0 1.244-.177 1.511-.266.356-.178.622-.355.889-.622s.444-.533.622-.889c.09-.267.267-.711.267-1.511.089-.8.089-1.067.089-3.2s-.09-2.4-.09-3.2c0-.8-.177-1.244-.266-1.511A3.192 3.192 0 0 0 13.6 2.4a3.193 3.193 0 0 0-.889-.622c-.267-.09-.711-.267-1.511-.267-.8-.089-1.067-.089-3.2-.089"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13"><g><g><path fill="#c69ccc" d="M5.067 12.978C11.11 12.978 14.4 8 14.4 3.644V3.2c.622-.444 1.156-1.067 1.6-1.689a7.379 7.379 0 0 1-1.867.533C14.844 1.6 15.29.978 15.556.267a8.153 8.153 0 0 1-2.045.8A3.175 3.175 0 0 0 11.111 0C9.333 0 7.822 1.511 7.822 3.289c0 .267 0 .533.09.711C5.155 3.822 2.755 2.578 1.155.533.889.978.71 1.6.71 2.223c0 1.155.622 2.133 1.422 2.755-.533 0-1.066-.178-1.51-.445 0 1.6 1.155 2.934 2.666 3.2-.267.09-.533.09-.889.09-.178 0-.444 0-.622-.09.444 1.334 1.6 2.223 3.11 2.311-1.155.89-2.577 1.423-4.088 1.423-.267 0-.533 0-.8-.09 1.422 1.067 3.2 1.6 5.067 1.6"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg></a><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g><g><path fill="#c69ccc" d="M9.067 14.4c-.134 0-.134 0-.267-.133-.133-.134-.133-.134-.133-.267v-2.4c-.534-.133-.934-.4-1.2-.8-.4-.4-.534-.8-.534-1.333v-.534c-.933 0-1.866-.4-2.533-1.066C3.733 7.2 3.333 6.4 3.333 5.333c0-1.066.4-2 1.2-2.666C5.467 2 6.533 1.733 8 1.6c.267 0 .667.133 1.067.267.133 0 .266.133.266.266 0 .934-.266 1.734-.666 2.534.4.4.666.933.666 1.333 0 .133 0 .4-.133.533-.133.134-.4.134-.533.134-.134 0-.267-.134-.534-.267C8 6.133 7.6 6 7.467 6c-.134 0-.4.133-.534.267-.133.133-.266.266-.266.533 0 .4.133.667.4.933.4.134.8.267 1.2.267H9.6c.667 0 1.2.267 1.733.8.4.4.667.933.667 1.6 0 .933-.4 1.867-.933 2.8-.8.8-1.467 1.2-2 1.2zM0 8c0 2.267.933 4 2.4 5.6C3.867 15.2 5.733 16 8 16c2.267 0 4.133-.8 5.6-2.4C15.2 12.133 16 10.267 16 8c0-2.267-.8-4.133-2.4-5.6C12.133.8 10.267 0 8 0 5.733 0 3.867.8 2.4 2.4.8 3.867 0 5.733 0 8z"/></g></g></svg></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="arrows">
+        <div class="prev"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><g><g><g><path fill="#3e5259" d="M14.275 28.55l2.595-2.596-9.825-9.826h21.504v-3.707H7.045l9.825-9.826L14.275 0 0 14.275z"/></g></g></g></svg></div>
+        <div class="next"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><g><g><g><path fill="#3e5259" d="M14.275 0l-2.596 2.595 9.825 9.826H0v3.707h21.504l-9.825 9.826 2.596 2.595 14.274-14.274z"/></g></g></g></svg></div>
+      </div>
+    </section>
+    <section class="how_to_get_status">
+      <div class="container">
+        <div class="col">
+          <p class="how_to_get_status__title">КАК ПОЛУЧИТЬ<br>СТАТУС<br>ОТБОРОЧНОГО<br>Турнира на ЧР</p>
+          <p class="how_to_get_status__preview-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p><i><a class="more" href="#">Подробнее...</a></i><a class="link v1" href="#" download>СКАЧАТЬ ПОЛОЖЕНИЕ В PDF</a>
+        </div>
+        <form>
+          <h6 class="title">Отправить форму</h6>
+          <div class="row"><b>Контактное лицо</b>
+            <input type="text" required>
+            <p class="alert">Поле не заполнено</p>
+          </div>
+          <div class="row"><b>НАЗВАНИЕ ТУРИНРА</b>
+            <input type="text" required>
+            <p class="alert">Поле не заполнено</p>
+          </div>
+          <div class="row"><b>МЕСТО ПРОВЕДЕНИЯ</b>
+            <input type="text" required>
+            <p class="alert">Поле не заполнено</p>
+          </div>
+          <div class="row error"><b>ДАТА</b>
+            <input class="datepicker-here" type="text" required data-date-format="dd-mm-yyyy">
+            <p class="alert">Поле не заполнено</p>
+          </div>
+          <div class="row"><b>ЭЛ. ПОЧТА</b>
+            <input type="email" required>
+            <p class="alert">Поле не заполнено</p>
+          </div>
+          <div class="row"><b>Загрузить положение</b>
+            <div class="upload">
+              <input type="file">
+              <p class="text"></p><span>ПРИКРЕПИТЬ</span>
+            </div>
+            <p class="alert">Поле не заполнено</p>
+          </div>
+          <div class="row">
+            <div class="checkbox">
+              <input type="checkbox" checked>
+              <div class="checker"></div><span>Даю согласие на обработку<br>персональных данных </span>
+            </div>
+            <input type="submit" value="ОТПРАВИТЬ">
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <div class="container"><a class="home" href="/"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="314" height="98" viewBox="0 0 314 98">
+  <defs><image
+    id="4gabb"
+    width="314"
+    height="98"
+    xlink:href="data:image/png;base64,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"/>
+    <clipPath id="4gaba"><path d="M0 99V0h315v99z"/></clipPath>
+  </defs>
+  <g>
+    <g>
+      <g clip-path="url(&quot;#4gaba&quot;)"><use xlink:href="#4gabb"/></g>
+    </g>
+  </g>
+</svg>
+</a>
+        <nav class="footer-menu">
+          <ul>
+            <li>
+              <ul>
+                <li><a class="mailTo" href="mailto:team@yandex.ru">team@yandex.ru</a></li>
+                <li><a class="our_group" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16"><g><g><path fill="#c69ccc" d="M5.422 16V8.711h2.49l.355-2.844H5.422V4.089c0-.8.267-1.422 1.422-1.422h1.512V.089C8 .089 7.11 0 6.133 0 4 0 2.49 1.333 2.49 3.733v2.134H0V8.71h2.489V16z"/></g></g></svg>&nbsp;-&nbsp;наша группа</a></li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li><a href="#">КОНТАКТЫ</a></li>
+                <li><a href="#">ПОЛОЖЕНИЕ</a></li>
+                <li><a href="#">УЧАСТНИКИ</a></li>
+                <li><a href="#">МЕСТО ПРОВЕДЕНИЯ</a></li>
+                <li><a href="#">РАСПИСАНИЕ</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li><a href="#">ОБ ОРГАНИЗАТОРАХ</a></li>
+                <li><a href="#">ПОЛУЧЕНИЕ СТАТУСА</a></li>
+                <li><a href="#">АРХИВ</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <ul class="previewpagelinks">
+      <li><a href="/">- index</a></li>
+      <li><a href="/index(no_date).html">- index(no_date)</a></li>
+      <li><a href="/detail_page.html">- detail_page</a></li>
+      <li><a href="/news.html">- news</a></li>
+      <li><a href="/partipants_list.html">- partipants_list</a></li>
+      <li><a href="/provision.html">- provision</a></li>
+      <li><a href="/request.html">- request</a></li>
+      <li><a href="/selection.html">- selection</a></li>
+    </ul>
+    <div class="copyright">
+      <p>© ЧТО? ГДЕ? КОГДА? Чемпионат России </p>
+    </div>
+  </body>
+</html>
